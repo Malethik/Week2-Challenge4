@@ -52,15 +52,34 @@ export const arrayUnshift = (array, element) => {
 
 export const arrayMap = (array, funcio) => {
   const newArray = [];
-  for (const item of array) {
-    const element = funcio(item);
+  for (const iterator of array) {
+    const element = funcio(iterator);
     arrayPush(newArray, element);
   }
 
   return newArray;
 };
 
-// De acabar
+export const arrayFilter = (array, funcion) => {
+  const newArray = [];
+  for (const iterator of array) {
+    const element = funcion(iterator);
+    if (funcion(iterator) === true) {
+      arrayPush(newArray, iterator);
+    }
+  }
+
+  return newArray;
+};
+
+export const arrayFind2 = (array, funcion) => {
+  for (const iterator of array) {
+    if (funcion(iterator) === true) {
+      return iterator;
+    }
+  }
+};
+// De acabar => JOIN
 /* const arrayJoin = (array, e) => {
   if ((e = '')) {
     const string = array + e;

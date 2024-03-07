@@ -7,6 +7,8 @@ import {
   arrayIndexOf,
   arrayUnshift,
   arrayMap,
+  arrayFilter,
+  arrayFind2,
 } from './index';
 
 describe('arrayLenght', () => {
@@ -50,5 +52,25 @@ describe('arrayShift', () => {
     const expected = 1;
     const r = arrayShift(a);
     expect(r).toBe(expected);
+  });
+});
+
+describe('arrayFilter', () => {
+  test('When parameter is [1,2,3,4,5], we expect [4,5] ', () => {
+    const a = [1, 2, 3, 4, 5];
+    const y = (element) => element > 4;
+    const expected = [5];
+    const r = arrayFilter(a, y);
+    expect(r).toStrictEqual(expected);
+  });
+});
+
+describe.only('arrayFind', () => {
+  test('When parameter is [1,2,3,4,5], we expect 3 ', () => {
+    const a = [1, 2, 3, 4, 5];
+    const y = (element) => element > 2;
+    const expected = 3;
+    const r = arrayFind2(a, y);
+    expect(r).toStrictEqual(expected);
   });
 });
